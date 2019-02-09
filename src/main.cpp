@@ -8,7 +8,9 @@
  * Change log   :                                                          *
  ***************************************************************************/
 
-#include<iostream>
+#include <iostream>
+#include "CompridoFellesUK.h"
+#include <exception>
 
 int main(int argc, char* argv[]){
 
@@ -19,7 +21,17 @@ int main(int argc, char* argv[]){
 		exit(-1);
 	}
 
-	std::cout << "argv[1]: " << argv[1] << "\n";
+	try{
+	    CompridoFellesUK lonCmnSq(argv[1]);
+	    std::cout << "\nInput sequence # 1: " << lonCmnSq.getInpSeq1() << "\n";
+	    std::cout << "Input sequence # 2: " << lonCmnSq.getInpSeq2() << "\n";
+        std::cout << "\nLongest Common Sub-Sequence Length: " << lonCmnSq.findCompridoFellesUK() << "\n";
+        std::cout << "\nLongest Common Sub-Sequence: " << lonCmnSq.getCompridoFellesUK() << "\n";
+        std::cout << "\nDynamic Table Content: " << lonCmnSq.getDynamicTableContent() << "\n";
+	}
+	catch(std::exception& e){
+		std::cout << e.what() << "\n";
+	}
 
 	return 0;
 
